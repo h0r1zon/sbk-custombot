@@ -310,6 +310,7 @@ class Bot(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._last_exception = None
+        self.logger = logging.getLogger(__name__)
 
     def restart(self):
 
@@ -432,9 +433,9 @@ class Bot(commands.AutoShardedBot):
 
 
 if test:
-    bot = Bot(command_prefix=">>>", owner_id=286246724270555136, loop=loop)
+    bot = Bot(command_prefix=">>>", loop=loop)
 else:
-    bot = Bot(command_prefix=">", owner_id=286246724270555136, loop=loop)
+    bot = Bot(command_prefix=">", loop=loop)
 
 if test:
     print("--- Testing mode active! ----")
